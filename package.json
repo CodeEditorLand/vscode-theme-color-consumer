@@ -1,32 +1,38 @@
 {
   "name": "@vscode/theme-color-consumer",
   "version": "0.0.1",
+  "private": "false",
   "description": "Normalizes vscode themes and colors",
-  "main": "dist/index.js",
-  "scripts": {
-    "extract": "node dist/build/extract",
-    "watch": "tsc --watch",
-    "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
-    "docker-extract": "docker build . -f build.Dockerfile",
-    "prepack": "npm run compile",
-    "test": "jest dist",
-    "test:watch": "jest dist --watch",
-    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts"
+  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
+  "bugs": {
+    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
   },
+  "license": "MIT",
   "author": {
     "name": "Nikola Hristov",
     "email": "nikola@nikolahristov.tech",
     "url": "https://nikolahristov.tech"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
+  "publisher": "playform",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
+    "docker-extract": "docker build . -f build.Dockerfile",
+    "extract": "node dist/build/extract",
+    "prepack": "npm run compile",
+    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts",
+    "test": "jest dist",
+    "test:watch": "jest dist --watch",
+    "watch": "tsc --watch"
   },
-  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
+  "dependencies": {
+    "jsonc-parser": "3.2.0"
+  },
   "devDependencies": {
     "@types/glob": "8.1.0",
     "@types/jest": "29.5.6",
@@ -42,11 +48,6 @@
     "typescript": "5.2.2",
     "typescript-esbuild": "0.3.1"
   },
-  "dependencies": {
-    "jsonc-parser": "3.2.0"
-  },
-  "type": "module",
-  "private": "false",
   "publishConfig": {
     "access": "public"
   }
