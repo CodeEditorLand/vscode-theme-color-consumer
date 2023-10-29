@@ -1,6 +1,6 @@
 {
   "name": "@vscode/theme-color-consumer",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Normalizes vscode themes and colors",
   "main": "dist/index.js",
   "scripts": {
@@ -10,18 +10,23 @@
     "docker-extract": "docker build . -f build.Dockerfile",
     "prepack": "npm run compile",
     "test": "jest dist",
-    "test:watch": "jest dist --watch"
+    "test:watch": "jest dist --watch",
+    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microsoft/vscode-theme-color-consumer.git"
+    "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
   },
-  "author": "Connor Peet <connor@peet.io>",
+  "author": {
+    "name": "Nikola Hristov",
+    "email": "nikola@nikolahristov.tech",
+    "url": "https://nikolahristov.tech"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/microsoft/vscode-theme-color-consumer/issues"
+    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
   },
-  "homepage": "https://github.com/microsoft/vscode-theme-color-consumer#readme",
+  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
   "devDependencies": {
     "@types/glob": "8.1.0",
     "@types/jest": "29.5.6",
@@ -34,16 +39,15 @@
     "jest": "29.7.0",
     "prettier": "3.0.3",
     "rimraf": "5.0.5",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "typescript-esbuild": "0.3.1"
   },
   "dependencies": {
     "jsonc-parser": "3.2.0"
   },
-  "prettier": {
-    "trailingComma": "all",
-    "singleQuote": true,
-    "arrowParens": "avoid",
-    "printWidth": 100,
-    "tabWidth": 2
+  "type": "module",
+  "private": "false",
+  "publishConfig": {
+    "access": "public"
   }
 }
