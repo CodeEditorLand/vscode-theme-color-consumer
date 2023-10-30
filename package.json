@@ -1,54 +1,54 @@
 {
-  "name": "@vscode/theme-color-consumer",
-  "version": "0.0.1",
-  "private": "false",
-  "description": "Normalizes vscode themes and colors",
-  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-  "bugs": {
-    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Nikola Hristov",
-    "email": "nikola@nikolahristov.tech",
-    "url": "https://nikolahristov.tech"
-  },
-  "publisher": "playform",
-  "type": "module",
-  "main": "dist/index.js",
-  "scripts": {
-    "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
-    "docker-extract": "docker build . -f build.Dockerfile",
-    "extract": "node dist/build/extract",
-    "prepack": "npm run compile",
-    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts",
-    "test": "jest dist",
-    "test:watch": "jest dist --watch",
-    "watch": "tsc --watch"
-  },
-  "dependencies": {
-    "jsonc-parser": "3.2.0"
-  },
-  "devDependencies": {
-    "@types/glob": "8.1.0",
-    "@types/jest": "29.5.6",
-    "@types/node": "20.8.9",
-    "@types/prettier": "2.7.3",
-    "esbuild": "0.19.5",
-    "execa": "8.0.1",
-    "glob": "10.3.10",
-    "got": "13.0.0",
-    "jest": "29.7.0",
-    "prettier": "3.0.3",
-    "rimraf": "5.0.5",
-    "typescript": "5.2.2",
-    "typescript-esbuild": "0.3.1"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@vscode/theme-color-consumer",
+	"version": "0.0.1",
+	"private": "false",
+	"description": "Normalizes vscode themes and colors",
+	"homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
+	"bugs": {
+		"url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Nikola Hristov",
+		"email": "nikola@nikolahristov.tech",
+		"url": "https://nikolahristov.tech"
+	},
+	"publisher": "playform",
+	"type": "module",
+	"main": "dist/index.js",
+	"scripts": {
+		"compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
+		"docker-extract": "docker build . -f build.Dockerfile",
+		"extract": "node dist/build/extract",
+		"prepack": "npm run compile",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"test": "jest dist",
+		"test:watch": "jest dist --watch",
+		"watch": "tsc --watch"
+	},
+	"dependencies": {
+		"jsonc-parser": "3.2.0"
+	},
+	"devDependencies": {
+		"@types/glob": "8.1.0",
+		"@types/jest": "29.5.6",
+		"@types/node": "20.8.9",
+		"@types/prettier": "2.7.3",
+		"esbuild": "0.19.5",
+		"execa": "8.0.1",
+		"glob": "10.3.10",
+		"got": "13.0.0",
+		"jest": "29.7.0",
+		"prettier": "3.0.3",
+		"rimraf": "5.0.5",
+		"typescript": "5.2.2",
+		"typescript-esbuild": "0.3.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
