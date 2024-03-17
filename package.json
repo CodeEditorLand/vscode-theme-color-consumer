@@ -1,18 +1,33 @@
 {
-  "name": "@vscode/theme-color-consumer",
-  "version": "0.1.0",
-  "description": "Normalizes vscode themes and colors",
-  "homepage": "https://github.com/microsoft/vscode-theme-color-consumer#readme",
+  "author": "Connor Peet <connor@peet.io>",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-theme-color-consumer/issues"
   },
+  "dependencies": {
+    "jsonc-parser": "3.0.0"
+  },
+  "description": "Normalizes vscode themes and colors",
+  "devDependencies": {
+    "@types/glob": "7.1.3",
+    "@types/jest": "26.0.23",
+    "@types/node": "15.6.1",
+    "@types/prettier": "2.2.3",
+    "esbuild": "0.12.5",
+    "execa": "5.0.0",
+    "glob": "7.1.7",
+    "got": "11.8.2",
+    "jest": "27.0.1",
+    "rimraf": "3.0.2",
+    "typescript": "4.3.2"
+  },
+  "homepage": "https://github.com/microsoft/vscode-theme-color-consumer#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@vscode/theme-color-consumer",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/microsoft/vscode-theme-color-consumer.git"
   },
-  "license": "MIT",
-  "author": "Connor Peet <connor@peet.io>",
-  "main": "dist/index.js",
   "scripts": {
     "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
     "docker-extract": "docker build . -f build.Dockerfile",
@@ -21,20 +36,5 @@
     "test:watch": "jest dist --watch",
     "watch": "tsc --watch"
   },
-  "dependencies": {
-    "jsonc-parser": "^3.0.0"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.1.3",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.6.1",
-    "@types/prettier": "^2.2.3",
-    "esbuild": "^0.12.5",
-    "execa": "^5.0.0",
-    "glob": "^7.1.7",
-    "got": "^11.8.2",
-    "jest": "^27.0.1",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.3.2"
-  }
+  "version": "0.1.0"
 }
