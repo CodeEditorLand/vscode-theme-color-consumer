@@ -1,12 +1,29 @@
 {
-  "author": "Connor Peet <connor@peet.io>",
+  "name": "@vscode/theme-color-consumer",
+  "version": "0.1.0",
+  "description": "Normalizes vscode themes and colors",
+  "homepage": "https://github.com/microsoft/vscode-theme-color-consumer#readme",
   "bugs": {
     "url": "https://github.com/microsoft/vscode-theme-color-consumer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoft/vscode-theme-color-consumer.git"
+  },
+  "license": "MIT",
+  "author": "Connor Peet <connor@peet.io>",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
+    "docker-extract": "docker build . -f build.Dockerfile",
+    "extract": "node dist/build/extract",
+    "prepack": "npm run compile",
+    "test:watch": "jest dist --watch",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "jsonc-parser": "3.0.0"
   },
-  "description": "Normalizes vscode themes and colors",
   "devDependencies": {
     "@types/glob": "7.1.3",
     "@types/jest": "26.0.23",
@@ -19,22 +36,5 @@
     "jest": "27.0.1",
     "rimraf": "3.0.2",
     "typescript": "4.3.2"
-  },
-  "homepage": "https://github.com/microsoft/vscode-theme-color-consumer#readme",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@vscode/theme-color-consumer",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/microsoft/vscode-theme-color-consumer.git"
-  },
-  "scripts": {
-    "compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
-    "docker-extract": "docker build . -f build.Dockerfile",
-    "extract": "node dist/build/extract",
-    "prepack": "npm run compile",
-    "test:watch": "jest dist --watch",
-    "watch": "tsc --watch"
-  },
-  "version": "0.1.0"
+  }
 }
