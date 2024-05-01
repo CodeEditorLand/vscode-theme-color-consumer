@@ -1,39 +1,16 @@
 {
-	"name": "@vscode/theme-color-consumer",
-	"version": "0.0.1",
-	"private": false,
-	"description": "Normalizes vscode themes and colors",
-	"keywords": [
-		"land"
-	],
-	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandThemeColorConsumer#readme",
-	"bugs": {
-		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandThemeColorConsumer/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+HTTPS://github.com/CodeEditorLand/LandThemeColorConsumer.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
 	"author": {
-		"name": "🌆 — Land —",
 		"email": "Land@PlayForm.Cloud",
+		"name": "🌆 — Land —",
 		"url": "HTTPS://Land.PlayForm.Cloud"
 	},
-	"type": "module",
-	"main": "dist/index.js",
-	"scripts": {
-		"Document": "Document 'Source/**/*.ts'",
-		"compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
-		"docker-extract": "docker build . -f build.Dockerfile",
-		"extract": "node dist/build/extract",
-		"prepack": "npm run compile",
-		"prepublishOnly": "Build 'Source/**/*.ts'",
-		"test:watch": "jest dist --watch"
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandThemeColorConsumer/issues"
 	},
 	"dependencies": {
 		"jsonc-parser": "3.2.1"
 	},
+	"description": "Normalizes vscode themes and colors",
 	"devDependencies": {
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
@@ -45,7 +22,30 @@
 		"got": "14.2.1",
 		"rimraf": "5.0.5"
 	},
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandThemeColorConsumer#readme",
+	"keywords": [
+		"land"
+	],
+	"license": "SEE LICENSE IN LICENSE",
+	"main": "dist/index.js",
+	"name": "@vscode/theme-color-consumer",
+	"private": false,
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/LandThemeColorConsumer.git"
+	},
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
+		"docker-extract": "docker build . -f build.Dockerfile",
+		"extract": "node dist/build/extract",
+		"prepack": "npm run compile",
+		"prepublishOnly": "Build 'Source/**/*.ts'",
+		"test:watch": "jest dist --watch"
+	},
+	"type": "module",
+	"version": "0.0.1"
 }
