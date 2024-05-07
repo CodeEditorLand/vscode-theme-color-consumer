@@ -53,7 +53,7 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 
   for (const color of JSON.parse(match[1].trim())) {
     if (color.deprecationMessage) {
-      typeDef += `\n/** @deprecated ${color.deprecationMessage} */\n`;
+      typeDef += `\n\n`;
     }
     typeDef += ` | "${color.id}"`;
     const { light, dark, hc } = color.defaults || defaultDefaults;
