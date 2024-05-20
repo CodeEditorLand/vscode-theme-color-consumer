@@ -141,7 +141,7 @@ export type ColorIdentifier =
   | 'tree.indentGuidesStroke'
   | 'tree.tableColumnsBorder'
   | 'list.deemphasizedForeground'
-  
+  /** @deprecated Please use quickInputList.focusBackground instead */
   | 'quickInput.list.focusBackground'
   | 'quickInputList.focusForeground'
   | 'quickInputList.focusBackground'
@@ -220,7 +220,7 @@ export type ColorIdentifier =
   | 'tab.unfocusedActiveModifiedBorder'
   | 'tab.unfocusedInactiveModifiedBorder'
   | 'editorPane.background'
-  
+  /** @deprecated Deprecated: Background color of an editor group is no longer being supported with the introduction of the grid editor layout. You can use editorGroup.emptyBackground to set the background color of empty editor groups. */
   | 'editorGroup.background'
   | 'editorGroup.emptyBackground'
   | 'editorGroup.focusedEmptyBorder'
@@ -320,7 +320,7 @@ export type ColorIdentifier =
   | 'editorIndentGuide.background'
   | 'editorIndentGuide.activeBackground'
   | 'editorLineNumber.foreground'
-  
+  /** @deprecated Id is deprecated. Use 'editorLineNumber.activeForeground' instead. */
   | 'editorActiveLineNumber.foreground'
   | 'editorLineNumber.activeForeground'
   | 'editorRuler.foreground'
