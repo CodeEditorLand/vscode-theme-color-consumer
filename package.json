@@ -1,16 +1,16 @@
 {
 	"dependencies": {
-		"jsonc-parser": "^3.2.1"
+		"jsonc-parser": "3.2.1"
 	},
 	"description": "Normalizes vscode themes and colors",
 	"devDependencies": {
-		"@types/glob": "^8.1.0",
-		"@types/node": "^20.14.2",
-		"esbuild": "^0.21.5",
-		"execa": "^9.2.0",
-		"glob": "^10.4.1",
-		"got": "^14.4.1",
-		"rimraf": "^5.0.7"
+		"@types/glob": "8.1.0",
+		"@types/node": "20.14.2",
+		"esbuild": "0.21.5",
+		"execa": "9.2.0",
+		"glob": "10.4.1",
+		"got": "14.4.1",
+		"rimraf": "5.0.7"
 	},
 	"main": "dist/index.js",
 	"name": "@vscode/theme-color-consumer",
