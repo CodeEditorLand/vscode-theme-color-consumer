@@ -1,24 +1,24 @@
 {
-	"dependencies": {
-		"jsonc-parser": "^3.0.0"
-	},
-	"description": "Normalizes vscode themes and colors",
-	"devDependencies": {
-		"@types/glob": "^7.1.3",
-		"@types/node": "^15.6.1",
-		"esbuild": "^0.12.5",
-		"execa": "^5.0.0",
-		"glob": "^7.1.7",
-		"got": "^11.8.2",
-		"rimraf": "^3.0.2"
-	},
-	"main": "dist/index.js",
 	"name": "@vscode/theme-color-consumer",
+	"description": "Normalizes vscode themes and colors",
+	"main": "dist/index.js",
 	"scripts": {
 		"compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
 		"docker-extract": "docker build . -f build.Dockerfile",
 		"extract": "node dist/build/extract",
 		"prepack": "npm run compile",
 		"test:watch": "jest dist --watch"
+	},
+	"dependencies": {
+		"jsonc-parser": "3.3.1"
+	},
+	"devDependencies": {
+		"@types/glob": "8.1.0",
+		"@types/node": "20.14.12",
+		"esbuild": "0.23.0",
+		"execa": "9.3.0",
+		"glob": "11.0.0",
+		"got": "14.4.2",
+		"rimraf": "6.0.1"
 	}
 }
