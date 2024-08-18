@@ -5,9 +5,9 @@
 	"description": "Normalizes vscode themes and colors",
 	"devDependencies": {
 		"@types/glob": "8.1.0",
-		"@types/node": "22.1.0",
-		"esbuild": "0.23.0",
-		"execa": "9.3.0",
+		"@types/node": "22.4.0",
+		"esbuild": "0.23.1",
+		"execa": "9.3.1",
 		"glob": "11.0.0",
 		"got": "14.4.2",
 		"rimraf": "6.0.1"
