@@ -5,7 +5,7 @@ list off _all_ VS Code
 [colors](https://code.visualstudio.com/api/references/theme-color), with
 defaults and overrides filled in.
 
-## Usage
+## 🛠️ Usage
 
 Here's how you might load a VS Code theme in order to make the current document
 fully capable of styling code made to run in a VS Code webview:
