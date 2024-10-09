@@ -9,7 +9,7 @@
 		"esbuild": "0.24.0",
 		"execa": "9.4.0",
 		"glob": "11.0.0",
-		"got": "14.4.2",
+		"got": "14.4.3",
 		"rimraf": "6.0.1"
 	},
 	"main": "dist/index.js",
