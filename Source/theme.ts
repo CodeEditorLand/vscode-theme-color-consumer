@@ -24,6 +24,7 @@ export interface ITMTokenColor {
 	name: string;
 	scope: string;
 	colorGroup: string | ITokenColorSetting;
+
 	settings: ITokenColorSetting;
 }
 
@@ -66,8 +67,10 @@ const getUiThemeType = (uiTheme: UITheme) => {
 	switch (uiTheme) {
 		case UITheme.Dark:
 			return ThemeType.Dark;
+
 		case UITheme.Light:
 			return ThemeType.Light;
+
 		default:
 			return ThemeType.HighContrast;
 	}
@@ -90,7 +93,9 @@ export class ColorTheme {
 	 */
 	public static parseStrict(json: string, contribution: IThemeContribution) {
 		const errors: jsonc.ParseError[] = [];
+
 		const source = jsonc.parse(json, errors);
+
 		if (errors.length) {
 			throw errors[0];
 		}
@@ -108,15 +113,19 @@ export class ColorTheme {
 		loader: (url: string) => string | Promise<string>,
 	) {
 		const packageJson = jsonc.parse(await loader(packageJsonUrl));
+
 		const themes = packageJson?.contributes?.themes;
+
 		if (!(themes instanceof Array)) {
 			return [];
 		}
 
 		const expectedOrigin = new URL(packageJsonUrl).origin;
+
 		return Promise.all(
 			themes.map(async (contribution) => {
 				const themeUrl = new URL(contribution.path, packageJsonUrl);
+
 				if (themeUrl.origin !== expectedOrigin) {
 					throw new Error(`Invalid origin ${expectedOrigin}`);
 				}
@@ -166,6 +175,7 @@ export class ColorTheme {
 	 */
 	public getColor(identifier: ColorIdentifier) {
 		const saved = this.resolved.get(identifier);
+
 		if (saved) {
 			return saved;
 		}
@@ -173,13 +183,17 @@ export class ColorTheme {
 		if (this.source.colors.hasOwnProperty(identifier)) {
 			const color = Color.fromHex(this.source.colors[identifier]);
 			this.resolved.set(identifier, color);
+
 			return color;
 		}
 
 		const defaultValue = colorDefaults.get(identifier)?.[this.typeIndex];
+
 		if (defaultValue) {
 			const color = resolveColorValue(defaultValue, this);
+
 			if (color) this.resolved.set(identifier, color);
+
 			return color;
 		}
 

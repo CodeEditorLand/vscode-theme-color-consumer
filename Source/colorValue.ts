@@ -75,6 +75,7 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 		case ColorTransformType.OneOf:
 			for (const candidate of transform.values) {
 				const color = resolveColorValue(candidate, theme);
+
 				if (color) {
 					return color;
 				}
@@ -83,6 +84,7 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 
 		case ColorTransformType.LessProminent:
 			const from = resolveColorValue(transform.value, theme);
+
 			if (!from) {
 				return undefined;
 			}
@@ -91,6 +93,7 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 				transform.background,
 				theme,
 			);
+
 			if (!backgroundColor) {
 				return from.transparent(
 					transform.factor * transform.transparency,
@@ -108,11 +111,13 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 						backgroundColor,
 						transform.factor,
 					).transparent(transform.transparency);
+
 		default:
 			const s = JSON.stringify(transform);
 			console.warn(
 				`Unknown transform ${s}, please report to @vscode/theme-color-consumer`,
 			);
+
 			return undefined; // unknown transform
 	}
 }

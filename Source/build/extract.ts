@@ -42,6 +42,7 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 	);
 
 	const match = /#colors:(.+)/.exec(execution.stderr);
+
 	if (!match) {
 		throw new Error(`No colors in match output: ${execution.stderr}`);
 	}
@@ -55,7 +56,9 @@ const defaultDefaults = { light: null, dark: null, hc: null };
  import { ColorDefaults } from './colorValue';
 
  `;
+
 	let typeDef = "export type ColorIdentifier =";
+
 	let mapDef =
 		"export const colorDefaults = new Map<ColorIdentifier, ColorDefaults>([";
 
@@ -64,6 +67,7 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 			typeDef += `\n/** @deprecated ${color.deprecationMessage} */\n`;
 		}
 		typeDef += ` | "${color.id}"`;
+
 		const { light, dark, hc } = color.defaults || defaultDefaults;
 		mapDef += `["${color.id}", ${JSON.stringify([light, dark, hc])}],`;
 	}
@@ -72,6 +76,7 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 	mapDef += "]);\n\n";
 
 	const outpath = resolve(__dirname, "../../src/colorDefaults.ts");
+
 	const formatted = prettier.format(header + typeDef + mapDef, {
 		...(await prettier.resolveConfig(outpath)),
 		filepath: outpath,
