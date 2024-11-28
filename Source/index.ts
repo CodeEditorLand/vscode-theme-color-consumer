@@ -1,7 +1,9 @@
 import { ColorTheme, ThemeType } from "./theme";
 
 export * from "./color";
+
 export * from "./colorDefaults";
+
 export * from "./colorValue";
 
 export interface IWebviewBaseOptions {

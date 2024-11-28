@@ -53,6 +53,7 @@ export type ColorDefaults = [
 ];
 
 export type ColorHex = string;
+
 export type ColorValue = Color | ColorHex | ColorIdentifier | ColorTransform;
 
 function executeTransform(transform: ColorTransform, theme: ColorTheme) {
