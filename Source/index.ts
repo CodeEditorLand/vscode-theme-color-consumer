@@ -8,10 +8,15 @@ export * from "./colorValue";
 
 export interface IWebviewBaseOptions {
 	uiFontFamily: string;
+
 	uiFontWeight: string;
+
 	uiFontSize: string;
+
 	editorFontFamily: string;
+
 	editorFontWeight: string;
+
 	editorFontSize: string;
 }
 

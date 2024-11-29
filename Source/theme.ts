@@ -13,7 +13,9 @@ import { resolveColorValue } from "./colorValue";
  */
 export interface ITokenColorSetting {
 	foreground?: string;
+
 	background?: string;
+
 	fontStyle?: string;
 }
 
@@ -22,7 +24,9 @@ export interface ITokenColorSetting {
  */
 export interface ITMTokenColor {
 	name: string;
+
 	scope: string;
+
 	colorGroup: string | ITokenColorSetting;
 
 	settings: ITokenColorSetting;
@@ -33,8 +37,11 @@ export interface ITMTokenColor {
  */
 export interface IThemeJson {
 	colors: { [name: string]: string };
+
 	tokenColors: string | readonly ITMTokenColor[];
+
 	semanticHighlighting: boolean;
+
 	semanticTokenColors: object;
 }
 
@@ -58,8 +65,11 @@ export const enum UITheme {
  */
 export interface IThemeContribution {
 	id: string;
+
 	label: string;
+
 	uiTheme: UITheme;
+
 	path: string;
 }
 
@@ -182,6 +192,7 @@ export class ColorTheme {
 
 		if (this.source.colors.hasOwnProperty(identifier)) {
 			const color = Color.fromHex(this.source.colors[identifier]);
+
 			this.resolved.set(identifier, color);
 
 			return color;

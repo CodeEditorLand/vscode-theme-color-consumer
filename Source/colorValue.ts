@@ -16,12 +16,14 @@ export function resolveColorValue(
 		if (colorValue[0] === "#") {
 			return Color.fromHex(colorValue);
 		}
+
 		return theme.getColor(colorValue as ColorIdentifier);
 	} else if (colorValue instanceof Color) {
 		return colorValue;
 	} else if (typeof colorValue === "object") {
 		return executeTransform(colorValue, theme);
 	}
+
 	return undefined;
 }
 
@@ -40,9 +42,13 @@ export type ColorTransform =
 	| { op: ColorTransformType.OneOf; values: readonly ColorValue[] }
 	| {
 			op: ColorTransformType.LessProminent;
+
 			value: ColorValue;
+
 			background: ColorValue;
+
 			factor: number;
+
 			transparency: number;
 	  };
 
@@ -81,6 +87,7 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 					return color;
 				}
 			}
+
 			return undefined;
 
 		case ColorTransformType.LessProminent:
@@ -115,6 +122,7 @@ function executeTransform(transform: ColorTransform, theme: ColorTheme) {
 
 		default:
 			const s = JSON.stringify(transform);
+
 			console.warn(
 				`Unknown transform ${s}, please report to @vscode/theme-color-consumer`,
 			);

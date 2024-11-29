@@ -42,8 +42,11 @@ export class RGBA {
 
 	constructor(r: number, g: number, b: number, a: number = 1) {
 		this.r = Math.min(255, Math.max(0, r)) | 0;
+
 		this.g = Math.min(255, Math.max(0, g)) | 0;
+
 		this.b = Math.min(255, Math.max(0, b)) | 0;
+
 		this.a = roundFloat(Math.max(Math.min(1, a), 0), 3);
 	}
 
@@ -77,8 +80,11 @@ export class HSLA {
 
 	constructor(h: number, s: number, l: number, a: number) {
 		this.h = Math.max(Math.min(360, h), 0) | 0;
+
 		this.s = roundFloat(Math.max(Math.min(1, s), 0), 3);
+
 		this.l = roundFloat(Math.max(Math.min(1, l), 0), 3);
+
 		this.a = roundFloat(Math.max(Math.min(1, a), 0), 3);
 	}
 
@@ -134,8 +140,10 @@ export class HSLA {
 			}
 
 			h *= 60;
+
 			h = Math.round(h);
 		}
+
 		return new HSLA(h, s, l, a);
 	}
 
@@ -143,18 +151,23 @@ export class HSLA {
 		if (t < 0) {
 			t += 1;
 		}
+
 		if (t > 1) {
 			t -= 1;
 		}
+
 		if (t < 1 / 6) {
 			return p + (q - p) * 6 * t;
 		}
+
 		if (t < 1 / 2) {
 			return q;
 		}
+
 		if (t < 2 / 3) {
 			return p + (q - p) * (2 / 3 - t) * 6;
 		}
+
 		return p;
 	}
 
@@ -177,8 +190,11 @@ export class HSLA {
 			const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
 
 			const p = 2 * l - q;
+
 			r = HSLA._hue2rgb(p, q, h + 1 / 3);
+
 			g = HSLA._hue2rgb(p, q, h);
+
 			b = HSLA._hue2rgb(p, q, h - 1 / 3);
 		}
 
@@ -197,6 +213,7 @@ export class Color {
 	}
 
 	readonly rgba: RGBA;
+
 	private _hsla?: HSLA;
 
 	get hsla(): HSLA {
@@ -214,6 +231,7 @@ export class Color {
 			this.rgba = arg;
 		} else if (arg instanceof HSLA) {
 			this._hsla = arg;
+
 			this.rgba = HSLA.toRGBA(arg);
 		} else {
 			throw new Error("Invalid color ctor argument");
@@ -425,11 +443,13 @@ export class Color {
 		if (of.isLighterThan(relative)) {
 			return of;
 		}
+
 		factor = factor ? factor : 0.5;
 
 		const lum1 = of.getRelativeLuminance();
 
 		const lum2 = relative.getRelativeLuminance();
+
 		factor = (factor * (lum2 - lum1)) / lum2;
 
 		return of.lighten(factor);
@@ -439,23 +459,32 @@ export class Color {
 		if (of.isDarkerThan(relative)) {
 			return of;
 		}
+
 		factor = factor ? factor : 0.5;
 
 		const lum1 = of.getRelativeLuminance();
 
 		const lum2 = relative.getRelativeLuminance();
+
 		factor = (factor * (lum1 - lum2)) / lum1;
 
 		return of.darken(factor);
 	}
 
 	static readonly white = new Color(new RGBA(255, 255, 255, 1));
+
 	static readonly black = new Color(new RGBA(0, 0, 0, 1));
+
 	static readonly red = new Color(new RGBA(255, 0, 0, 1));
+
 	static readonly blue = new Color(new RGBA(0, 0, 255, 1));
+
 	static readonly green = new Color(new RGBA(0, 255, 0, 1));
+
 	static readonly cyan = new Color(new RGBA(0, 255, 255, 1));
+
 	static readonly lightgrey = new Color(new RGBA(211, 211, 211, 1));
+
 	static readonly transparent = new Color(new RGBA(0, 0, 0, 0));
 }
 
@@ -683,6 +712,7 @@ export namespace Color {
 					case CharCode.F:
 						return 15;
 				}
+
 				return 0;
 			}
 		}

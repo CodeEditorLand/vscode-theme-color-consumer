@@ -66,13 +66,16 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 		if (color.deprecationMessage) {
 			typeDef += `\n/** @deprecated ${color.deprecationMessage} */\n`;
 		}
+
 		typeDef += ` | "${color.id}"`;
 
 		const { light, dark, hc } = color.defaults || defaultDefaults;
+
 		mapDef += `["${color.id}", ${JSON.stringify([light, dark, hc])}],`;
 	}
 
 	typeDef += ";\n\n";
+
 	mapDef += "]);\n\n";
 
 	const outpath = resolve(__dirname, "../../src/colorDefaults.ts");
@@ -85,5 +88,6 @@ const defaultDefaults = { light: null, dark: null, hc: null };
 	writeFileSync(outpath, formatted, "utf-8");
 })().catch((err) => {
 	console.error(err);
+
 	process.exit(1);
 });
