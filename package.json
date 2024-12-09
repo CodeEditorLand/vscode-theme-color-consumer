@@ -13,7 +13,7 @@
 		"rimraf": "6.0.1"
 	},
 	"main": "dist/index.js",
-	"name": "@vscode/theme-color-consumer",
+	"name": "@codeeditorland/theme-color-consumer",
 	"scripts": {
 		"compile": "rimraf dist && tsc && esbuild --bundle --minify ./dist/index --outfile=bundle.min.js --format=esm",
 		"docker-extract": "docker build . -f build.Dockerfile",
