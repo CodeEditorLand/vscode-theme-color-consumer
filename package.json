@@ -14,11 +14,11 @@
 	},
 	"devDependencies": {
 		"@types/glob": "8.1.0",
-		"@types/node": "22.13.0",
-		"esbuild": "0.24.2",
+		"@types/node": "22.13.1",
+		"esbuild": "0.25.0",
 		"execa": "9.5.2",
 		"glob": "11.0.1",
-		"got": "14.4.5",
+		"got": "14.4.6",
 		"rimraf": "6.0.1"
 	}
 }
